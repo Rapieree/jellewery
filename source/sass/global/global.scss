@@ -26,10 +26,6 @@ img {
   clip: rect(0 0 0 0);
 }
 
-.container {
-  padding: 0 98px;
-}
-
 @mixin font($font, $weight, $font-style: normal) {
   font-family: $font, "Arial", sans-serif;
   font-style: $font-style;
@@ -48,7 +44,19 @@ img {
   }
 }
 
-// hover
+.container {
+  padding: 0 98px;
+
+  @include tablet {
+    padding: 0 45px;
+  }
+
+  @include mobile {
+    padding: 0 15px;
+  }
+}
+
+// hover, focus, active
 
 @mixin setHoverByGreyText() {
   color: $color-darker-text;
@@ -56,6 +64,14 @@ img {
 
 @mixin setHoverByDarkText() {
   color: $color-grey-text;
+}
+
+@mixin setActiveByDarkText() {
+  color: darken($color-grey-text, 20);
+}
+
+@mixin setActiveByGreyText() {
+  color: lighten($color-darker-text, 20);
 }
 
 @mixin setFocusByLightBackground() {

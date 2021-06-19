@@ -11,17 +11,48 @@
   line-height: 21px;
   color: $color-darker-text;
   text-decoration: none;
+  display: inline-block;
+}
+
+.user-nav__basket--open svg {
+  @include tablet {
+    color: white;
+  }
 }
 
 .user-nav__basket-icon {
   display: none;
+
+  @include tablet {
+    display: block;
+  }
+
+  @include mobile {
+    width: 20px;
+    height: 18px;
+  }
+}
+
+.user-nav__basket-text {
+  @include tablet {
+    display: none;
+  }
 }
 
 .user-nav__basket a:hover,
+.user-nav__basket svg:hover,
 .user-nav__basket a:focus {
   @include setHoverByDarkText();
 }
 
 .user-nav__basket a:focus {
   @include setFocusByLightBackground();
+}
+
+.user-nav__basket a:active {
+  @include setActiveByDarkText();
+
+  @include tablet {
+    transform: scale(0.8);
+  }
 }

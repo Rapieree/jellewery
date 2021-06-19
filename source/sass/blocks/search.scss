@@ -4,6 +4,16 @@
   width: min-content;
   height: 40px;
   position: relative;
+
+  @include tablet {
+    margin: 36px 0 45px 0;
+    display: none;
+    width: 100%;
+  }
+
+  @include mobile {
+    margin: 25px 0 36px 0;
+  }
 }
 
 .search input {
@@ -20,17 +30,33 @@
 
   &::placeholder {
     color: $color-grey-text;
+
+    @include tablet {
+      color: transparent;
+    }
+  }
+
+  @include tablet {
+    width: 100%;
+    color: $color-text-light;
+    background-color: rgba(255, 255, 255, 0.15);
   }
 }
 
 .search input:hover {
   box-shadow: 0 0 0 1px $color-grey-text;
 
+  @include tablet {
+    @include setFocusByDarkBackground();
+  }
 }
 
 .search input:focus {
-  outline: none;
-  box-shadow: 0 0 0 1px $color-darkest-text;
+  @include setFocusByLightBackground();
+
+  @include tablet {
+    @include setFocusByDarkBackground();
+  }
 }
 
 .search button {
@@ -45,4 +71,29 @@
   top: 50%;
   left: 12px;
   transform: translateY(-50%);
+}
+
+.search button:hover,
+.search button:focus {
+  opacity: 0.7;
+}
+
+.search button:focus {
+  @include setFocusByLightBackground();
+
+  @include tablet {
+    @include setFocusByDarkBackground();
+  }
+}
+
+.search button:active {
+  opacity: 0.5;
+}
+
+.search svg {
+  color: black;
+
+  @include tablet {
+    color: white;
+  }
 }
