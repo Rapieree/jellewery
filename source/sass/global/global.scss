@@ -1,1 +1,69 @@
-// global styles
+html {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  box-sizing: border-box;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+}
+
+img {
+  max-width: 100%;
+}
+
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  overflow: hidden;
+  border: 0;
+  clip: rect(0 0 0 0);
+}
+
+.container {
+  padding: 0 98px;
+}
+
+@mixin font($font, $weight, $font-style: normal) {
+  font-family: $font, "Arial", sans-serif;
+  font-style: $font-style;
+  font-weight: $weight;
+}
+
+@mixin tablet {
+  @media (max-width: $max-tablet-width) {
+    @content;
+  }
+}
+
+@mixin mobile {
+  @media (max-width: $max-mobile-width) {
+    @content;
+  }
+}
+
+// hover
+
+@mixin setHoverByGreyText() {
+  color: $color-darker-text;
+}
+
+@mixin setHoverByDarkText() {
+  color: $color-grey-text;
+}
+
+@mixin setFocusByLightBackground() {
+  outline: none;
+  box-shadow: 0 0 0 1px $color-dark-focus;
+}
+
+@mixin setFocusByDarkBackground() {
+  outline: none;
+  box-shadow: 0 0 0 1px $color-light-focus;
+}

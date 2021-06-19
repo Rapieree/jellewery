@@ -1,0 +1,30 @@
+.site-nav {
+  margin:  -5px -17.5px;
+  padding-top: 20px;
+  padding-left: 10px;
+  display: flex;
+  flex-wrap: wrap;
+  list-style-type: none;
+}
+
+.site-nav li {
+  margin:  5px 17.5px;
+}
+
+.site-nav a {
+  @include font($font-poppins, 500);
+
+  font-size: 16px;
+  line-height: 24px;
+  color: $color-darker-text;
+  text-decoration: none;
+}
+
+.site-nav a:hover,
+.site-nav a:focus {
+  @include setHoverByDarkText();
+}
+
+.site-nav a:focus {
+  @include setFocusByLightBackground();
+}

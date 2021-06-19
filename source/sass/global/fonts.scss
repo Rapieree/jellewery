@@ -1,1 +1,63 @@
-// fonts includes
+@font-face {
+  font-family: "Poppins";
+  font-display: swap;
+  src: url("../fonts/poppins-regular.woff2") format("woff2"), url("../fonts/poppins-regular.woff") format("woff");
+  font-style: normal;
+  font-weight: 400;
+}
+
+@font-face {
+  font-family: "Poppins";
+  font-display: swap;
+  src: url("../fonts/poppins-medium.woff2") format("woff2"), url("../fonts/poppins-medium.woff") format("woff");
+  font-style: normal;
+  font-weight: 500;
+}
+
+@font-face {
+  font-family: "Cormorant Garamond";
+  font-display: swap;
+  src: url("../fonts/cormorant-garamond-regular.woff2") format("woff2"), url("../fonts/cormorant-garamond-regular.woff") format("woff");
+  font-style: normal;
+  font-weight: 400;
+}
+
+@font-face {
+  font-family: "Cormorant Garamond";
+  font-display: swap;
+  src: url("../fonts/cormorant-garamond-regular-italic.woff2") format("woff2"), url("../fonts/cormorant-garamond-regular-italic.woff") format("woff");
+  font-style: italic;
+  font-weight: 400;
+}
+
+@font-face {
+  font-family: "Cormorant Garamond";
+  font-display: swap;
+  src: url("../fonts/cormorant-garamond-medium.woff2") format("woff2"), url("../fonts/cormorant-garamond-medium.woff") format("woff");
+  font-style: normal;
+  font-weight: 500;
+}
+
+@font-face {
+  font-family: "Cormorant Garamond";
+  font-display: swap;
+  src: url("../fonts/cormorant-garamond-medium-italic.woff2") format("woff2"), url("../fonts/cormorant-garamond-medium-italic.woff") format("woff");
+  font-style: italic;
+  font-weight: 500;
+}
+
+@font-face {
+  font-family: "Cormorant Garamond";
+  font-display: swap;
+  src: url("../fonts/cormorant-garamond-bold.woff2") format("woff2"), url("../fonts/cormorant-garamond-bold.woff") format("woff");
+  font-style: normal;
+  font-weight: 600;
+}
+
+@font-face {
+  font-family: "Cormorant Garamond";
+  font-display: swap;
+  src: url("../fonts/cormorant-garamond-semi-bold.woff2") format("woff2"), url("../fonts/cormorant-garamond-semi-bold.woff") format("woff");
+  font-style: normal;
+  font-weight: 700;
+}

@@ -1,0 +1,27 @@
+.user-nav {
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+}
+
+.user-nav__basket a {
+  @include font($font-poppins, 500);
+
+  font-size: 14px;
+  line-height: 21px;
+  color: $color-darker-text;
+  text-decoration: none;
+}
+
+.user-nav__basket-icon {
+  display: none;
+}
+
+.user-nav__basket a:hover,
+.user-nav__basket a:focus {
+  @include setHoverByDarkText();
+}
+
+.user-nav__basket a:focus {
+  @include setFocusByLightBackground();
+}

@@ -1,0 +1,23 @@
+.user-auth {
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+}
+
+.user-auth__login a {
+  @include font($font-poppins, 500);
+
+  font-size: 14px;
+  line-height: 21px;
+  color: $color-darker-text;
+  text-decoration: none;
+}
+
+.user-auth__login a:hover,
+.user-auth__login a:focus {
+  @include setHoverByDarkText();
+}
+
+.user-auth__login a:focus {
+  @include setFocusByLightBackground();
+}
