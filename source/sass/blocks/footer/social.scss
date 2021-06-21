@@ -1,0 +1,108 @@
+.social {
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+  font: inherit;
+  color: inherit;
+
+  @include mobile {
+    margin: -10px -15px;
+    display: flex;
+    flex-wrap: wrap;
+  }
+}
+
+.social span {
+  @include mobile {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    margin: -1px;
+    padding: 0;
+    overflow: hidden;
+    border: 0;
+    clip: rect(0 0 0 0);
+  }
+}
+
+.social li:not(:last-child) {
+  margin-bottom: 21px;
+
+  @include mobile {
+    margin-bottom: 0;
+  }
+}
+
+.social li {
+  @include mobile {
+    margin: 10px 15px;
+  }
+}
+
+.social a {
+  padding-left: 30px;
+  font: inherit;
+  color: inherit;
+  text-decoration: none;
+
+  position: relative;
+
+  @include mobile {
+    padding-left: 0;
+  }
+}
+
+.social svg {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  transform: translateY(-50%);
+
+  @include mobile {
+    position: relative;
+    top: auto;
+    left: auto;
+    transform:  translateY(0);
+  }
+}
+
+.social__item--facebook svg {
+  @include mobile {
+    width: 12px;
+    height: 21px;
+  }
+}
+
+.social__item--instagram svg {
+  @include mobile {
+    width: 20px;
+    height: 21px;
+  }
+}
+
+.social__item--pinterest svg {
+  @include mobile {
+    width: 20px;
+    height: 21px;
+  }
+}
+
+.social__item--twitter svg {
+  @include mobile {
+    width: 20px;
+    height: 18px;
+  }
+}
+
+.social a:hover,
+.social a:focus {
+  color: $color-grey-text;
+}
+
+.social a:focus {
+  @include setFocusByDarkBackground();
+}
+
+.social a:active {
+  color: darken($color-grey-text, 20);
+}

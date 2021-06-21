@@ -58,7 +58,7 @@ img {
 
 // hover, focus, active
 
-@mixin setHoverByGreyText() {
+@mixin setHoverByLightText() {
   color: $color-darker-text;
 }
 
@@ -70,7 +70,7 @@ img {
   color: darken($color-grey-text, 20);
 }
 
-@mixin setActiveByGreyText() {
+@mixin setActiveByLightText() {
   color: lighten($color-darker-text, 20);
 }
 

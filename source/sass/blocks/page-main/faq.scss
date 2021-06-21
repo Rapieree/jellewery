@@ -1,0 +1,116 @@
+.faq h2 {
+  @include font($font-cormorant, 700);
+
+  margin: 0 0 48px 0;
+  padding: 0;
+  font-size: 34px;
+  line-height: 130%;
+  letter-spacing: 0.03em;
+  color: $color-darker-text;
+  text-align: center;
+
+  @include mobile {
+    margin-bottom: 28px;
+  }
+}
+
+.faq__question {
+  @include font($font-poppins, 500);
+
+  margin: 0;
+  padding: 0;
+  font-size: 18px;
+  line-height: 130%;
+  color: $color-darker-text;
+
+  @include mobile {
+    font-size: 16px;
+    line-height: 140%;
+  }
+}
+
+.faq__answer {
+  @include font($font-poppins, 400);
+
+  margin: 0;
+  padding: 0;
+  width: 520px;
+  font-size: 16px;
+  line-height: 130%;
+  color: $color-darker-text;
+
+  @include tablet {
+    width: 530px;
+  }
+
+  @include mobile {
+    width: auto;
+    font-size: 14px;
+    line-height: 143%;
+  }
+}
+
+// accordeon
+
+.faq__accordeon {
+  max-width: 970px;
+  margin: 0 auto;
+}
+
+.faq__accordeon-header {
+  padding: 44px 50px 42px 42px;
+
+  @include tablet {
+    padding: 43px 50px 44px 49px;
+  }
+
+  @include mobile {
+    padding: 15px 50px 21px 23px;
+  }
+}
+
+.faq__accordeon-header--open {
+  padding-bottom: 0;
+}
+
+.faq__accordeon__content {
+  padding: 7px 50px 42px 50px;
+
+  @include tablet {
+    padding: 25px 50px 44px 49px;
+  }
+
+  @include mobile {
+    padding: 15px 55px 20px 25px;
+  }
+}
+
+.faq__accordeon-header::before {
+  top: 48px;
+  right: 52px;
+
+  @include tablet {
+    top: 46px;
+  }
+
+  @include mobile {
+    top: 21px;
+    right: 28px;
+  }
+}
+
+.faq__break {
+  display: none;
+
+  @include mobile {
+    display: block;
+  }
+}
+
+.faq__accordeon-header:hover .faq__question {
+  @include setHoverByDarkText();
+}
+
+.faq__accordeon-header:active .faq__question {
+  @include setActiveByDarkText();
+}

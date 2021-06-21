@@ -15,6 +15,9 @@ var svgstore = require("gulp-svgstore")
 var posthtml = require("gulp-posthtml");
 var include = require("posthtml-include");
 var del = require("del");
+var concat = require("gulp-concat");
+var gulpif = require("gulp-if");
+const { dest } = require("gulp");
 
 gulp.task("css", function () {
   return gulp.src("source/sass/style.scss")
@@ -30,13 +33,30 @@ gulp.task("css", function () {
     .pipe(server.stream());
 });
 
+gulp.task("cssvendors", function () {
+  return gulp.src(["source/libs/**/*.css", "build/css/style.min.css"])
+    .pipe(concat("style.min.css"))
+    .pipe(gulp.dest("build/css"));
+});
+
+
 gulp.task("js", function () {
   return gulp.src([
-    "source/js/**/*.js",
+    "source/js/*.js",
     ], {
       base: "source"
     })
   .pipe(gulp.dest("build"));
+});
+
+gulp.task("jsvendors", function () {
+  return gulp.src([
+    "source/libs/**/*.js",
+  ], {
+    base: "source"
+  })
+  .pipe(concat("vendor.js"))
+  .pipe(dest("build/js/"));
 });
 
 gulp.task("server", function () {
@@ -48,7 +68,7 @@ gulp.task("server", function () {
     ui: false
   });
 
-  gulp.watch("source/sass/**/*.{scss,sass}", gulp.series("css"));
+  gulp.watch("source/sass/**/*.{scss,sass}", gulp.series("css", "cssvendors"));
   gulp.watch("source/img/sprite/**/icon-*.svg", gulp.series("sprite", "html", "refresh"));
   gulp.watch("source/*.html", gulp.series("html", "refresh"));
   gulp.watch("source/js/*.js", gulp.series("js", "refresh"));
@@ -78,7 +98,7 @@ gulp.task("webp", function () {
 });
 
 gulp.task("sprite", function () {
-  return gulp.src("source/img/sprite/{icon-*,htmlacademy*}.svg")
+  return gulp.src("source/img/sprite/**/*{icon-*,htmlacademy*}.svg")
     .pipe(svgstore({inlineSvg: true}))
     .pipe(rename("sprite_auto.svg"))
     .pipe(gulp.dest("build/img"));
@@ -97,7 +117,7 @@ gulp.task("copy", function () {
     "source/img/**/*",
     "!source/img/sprite/**",
     "source/fonts/**/*.{woff,woff2}",
-    "source/js/**",
+    "source/js/*.js",
     "source//*.ico"
     ], {
       base: "source"
@@ -109,5 +129,5 @@ gulp.task("clean", function () {
   return del("build");
 });
 
-gulp.task("build", gulp.series("clean", "copy", "css", "sprite", "html"));
+gulp.task("build", gulp.series("clean", "copy", "css", "sprite", "cssvendors", "jsvendors", "html"));
 gulp.task("start", gulp.series("build", "server"));

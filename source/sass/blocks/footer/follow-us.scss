@@ -1,0 +1,145 @@
+.follow-us {
+  margin-right: 15.3%;
+
+  @include tablet {
+    margin: 0 13px 45px 0;
+  }
+
+  @include mobile {
+    margin: 0;
+  }
+}
+
+.follow-us h2 {
+  @include font($font-cormorant, 700);
+  margin: -7px 0 10px 0;
+  padding: 0;
+  font-size: 34px;
+  line-height: 130%;
+  letter-spacing: 0.025em;
+  color: $color-text-light;
+
+  @include tablet {
+    margin: 0 0 9px 0;
+  }
+
+  @include mobile {
+    margin: 0 55px 11px 0;
+  }
+}
+
+.follow-us p {
+  @include font($font-poppins, 400);
+
+  margin: 0 0 35px 0;
+  padding: 0;
+  font-size: 16px;
+  line-height: 130%;
+  color: $color-grey-text;
+
+  @include tablet {
+    margin: -0 0 35px -2px;
+  }
+
+  @include mobile {
+    line-height: 140%;
+    margin: 0 55px 32px 0;
+  }
+}
+
+.follow-us__form {
+  width: 100%;
+  height: 40px;
+
+  position: relative;
+
+  // &::before {
+  //   content: "";
+  //   width: 120px;
+  //   height: 100%;
+  //   position: absolute;
+  //   right: 0;
+  //   top: 0;
+  // }
+}
+
+.follow-us__form input {
+  @include font($font-poppins, 400);
+
+  padding-right: 120px;
+  width: 100%;
+  height: 100%;
+  border: none;
+  border-bottom: 1px solid $color-text-light;
+  border-radius: 2px;
+  background-color: transparent;
+
+  font-size: 14px;
+  line-height: 21px;
+  color: $color-text-light;
+
+  &::placeholder {
+    font: inherit;
+    color: $color-grey-text;
+  }
+}
+
+.follow-us__form input:hover {
+  &::placeholder {
+    color: lighten($color-grey-text, 20);
+  }
+}
+
+.follow-us__form input:focus {
+  @include setFocusByDarkBackground();
+}
+
+.follow-us__form button {
+  @include font($font-poppins, 500);
+
+  margin: 0;
+  padding: 0 40px 0 0;
+  width: 100%;
+  height: 100%;
+  border: none;
+  background-color: transparent;
+  font-size: 16px;
+  line-height: 130%;
+  color: $color-text-light;
+  text-align: left;
+  cursor: pointer;
+}
+
+.follow-us__button-wrapper {
+  width: 103px;
+  height: 100%;
+
+  position: absolute;
+  top: 50%;
+  right: 0;
+  transform: translateY(-50%);
+}
+
+.follow-us__form button:hover,
+.follow-us__form button:focus,
+.follow-us__form button:hover svg,
+.follow-us__form button:focus svg {
+  color: $color-grey-text;
+}
+
+.follow-us__form button:focus {
+  @include setFocusByDarkBackground();
+}
+
+.follow-us__form button:active {
+  transform: scale(0.9);
+}
+
+.follow-us__button-wrapper svg {
+  color: white;
+
+  position: absolute;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%) rotate(180deg);
+}

@@ -2,11 +2,28 @@
 @import "global/variables.scss";
 @import "global/global.scss";
 
-// blocks
+// page
 @import "blocks/page-body.scss";
-@import "blocks/page-header.scss";
-@import "blocks/search.scss";
-@import "blocks/user-auth.scss";
-@import "blocks/user-nav.scss";
-@import "blocks/site-nav.scss";
-@import "blocks/about-us.scss";
+
+// header
+@import "blocks/header/page-header.scss";
+@import "blocks/header/search.scss";
+@import "blocks/header/user-auth.scss";
+@import "blocks/header/user-nav.scss";
+@import "blocks/header/site-nav.scss";
+@import "blocks/header/about-us.scss";
+
+// footer
+@import "blocks/footer/page-footer.scss";
+@import "blocks/footer/follow-us.scss";
+@import "blocks/footer/social.scss";
+
+// common blocks
+@import "blocks/common/promo.scss";
+@import "blocks/common/accordeon.scss";
+@import "blocks/common/product-card.scss";
+
+// main blocks
+@import "blocks/page-main/blog.scss";
+@import "blocks/page-main/faq.scss";
+@import "blocks/page-main/new-products.scss";
