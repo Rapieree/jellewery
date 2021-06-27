@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Selling jewelry for you | Jewellery</title>
+  <meta name="description" content="The best jewelry in the world">
+  <link rel="preload" href="fonts/poppins-regular.woff2" as="font" type="font/woff2" crossorigin="">
+  <link rel="preload" href="fonts/poppins-medium.woff2" as="font" type="font/woff2" crossorigin="">
+  <link rel="preload" href="fonts/cormorant-garamond-regular.woff2" as="font" type="font/woff2" crossorigin="">
+  <link rel="preload" href="fonts/cormorant-garamond-medium.woff2" as="font" type="font/woff2" crossorigin="">
+  <link rel="stylesheet" href="css/style.min.css">
+</head>
+
+<body class="page-body">
+  <header class="page-header">
+    <div class="page-header__wrapper container">
+      <button class="page-header__menu-button" type="button" aria-label="Open Menu">
+        <svg class="page-header__menu-button-icon" width="25" height="16">
+          <use xlink:href="img/sprite_auto.svg#icon-menu"></use>
+        </svg>
+      </button>
+      <form class="page-header__search search">
+        <label>
+          <span class="visually-hidden">Search field</span>
+          <input type="search" placeholder="Type here to search" minlength="2">
+        </label>
+        <button type="submit" aria-label="Search">
+          <svg width="14" height="14">
+            <use xlink:href="img/sprite_auto.svg#icon-search"></use>
+          </svg>
+        </button>
+      </form>
+      <a class="page-header__logo page-header__logo--active" href="main.html">
+        <svg class="page-header__logo-img" width="66" height="66">
+          <use xlink:href="img/sprite_auto.svg#icon-logo"></use>
+        </svg>
+      </a>
+      <ul class="page-header__user-auth user-auth">
+        <li class="user-auth__login"><a href="login.html">Login</a></li>
+      </ul>
+      <ul class="page-header__user-nav user-nav">
+        <li class="user-nav__basket">
+          <a href="#">
+            <span class="user-nav__basket-text">Cart 0</span>
+            <svg class="page-header__basket-icon user-nav__basket-icon" width="18" height="16">
+              <use xlink:href="img/sprite_auto.svg#icon-basket"></use>
+            </svg>
+          </a>
+        </li>
+      </ul>
+      <ul class="page-header__site-nav site-nav">
+        <li><a href="#">What’s new</a></li>
+        <li><a href="catalog.html">Chokers</a></li>
+        <li><a href="catalog.html">Necklaces</a></li>
+        <li><a href="catalog.html">Rings</a></li>
+        <li><a href="catalog.html">Earrings</a></li>
+      </ul>
+      <ul class="page-header__about-us about-us">
+        <li><a href="#">About CH</a></li>
+        <li><a href="#">Stores & Hours</a></li>
+        <li><a href="#">Contact Us</a></li>
+      </ul>
+    </div>
+  </header>
+
+  <main class="container">
+    <h1 class="visually-hidden">Login page</h1>
+    <div class="login">
+      <h2 class="login__title">Log In</h2>
+      <form class="login__form">
+        <label class="visually-hidden" for="login-email">field email</label>
+        <input type="email" id="login-email" placeholder="Your E-mail" required="">
+        <label class="visually-hidden" for="login-password">field password</label>
+        <input type="password" id="login-password" placeholder="Password" required="">
+        <a class="login-forgot-link" href="#">Forgot your password?</a>
+        <button type="submit">Log In</button>
+      </form>
+      <p class="login__register">Don’t have an account?
+        <a class="login__sign-up-link" href="#">Sign up</a>
+      </p>
+    </div>
+  </main>
+
+  <footer class="page-footer container">
+    <section class="page-footer__follow-us follow-us">
+      <h2>The good stuff in your inbox </h2>
+      <p>News and updates from CH. No spam, we promise.</p>
+      <form class="follow-us__form">
+        <label class="visually-hidden" for="follow-us-email">Enter your email</label>
+        <input type="email" id="follow-us-email" placeholder="Your E-mail" required="">
+        <div class="follow-us__button-wrapper">
+          <button type="submit">Sign Up
+            <svg width="30" height="11">
+              <use xlink:href="img/sprite_auto.svg#icon-arrow"></use>
+            </svg>
+          </button>
+        </div>
+      </form>
+    </section>
+    <ul class="page-footer__links-list">
+      <li><a href="#">Ordering & Payment</a></li>
+      <li><a href="#">Terms & Conditions</a></li>
+      <li><a href="#">Returns & Exchanges</a></li>
+      <li><a href="#">Delivery</a></li>
+    </ul>
+    <ul class="page-footer__links-list">
+      <li><a href="#">About CH</a></li>
+      <li><a href="#">Stores & Hours</a></li>
+      <li><a href="#">Jobs</a></li>
+      <li><a href="#">Contact Us</a></li>
+    </ul>
+    <ul class="social">
+      <li class="social__item social__item--facebook">
+        <a href="#">
+          <svg width="8" height="15">
+            <use xlink:href="img/sprite_auto.svg#icon-facebook"></use>
+          </svg>
+          <span>Facebook</span>
+        </a>
+      </li>
+      <li class="social__item social__item--instagram">
+        <a href="#">
+          <svg width="15" height="15">
+            <use xlink:href="img/sprite_auto.svg#icon-instagram"></use>
+          </svg>
+          <span>Instagram</span>
+        </a>
+      </li>
+      <li class="social__item social__item--pinterest">
+        <a href="#">
+          <svg width="15" height="15">
+            <use xlink:href="img/sprite_auto.svg#icon-pinterest"></use>
+          </svg>
+          <span>Pinterest</span>
+        </a>
+      </li>
+      <li class="social__item social__item--twitter">
+        <a href="#">
+          <svg width="15" height="13">
+            <use xlink:href="img/sprite_auto.svg#icon-twitter"></use>
+          </svg>
+          <span>Twitter</span>
+        </a>
+      </li>
+    </ul>
+  </footer>
+
+  <script src="js/vendor.js"></script>
+  <script src="js/main.js"></script>
+</body>
+
+</html>

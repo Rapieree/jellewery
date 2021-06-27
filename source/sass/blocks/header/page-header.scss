@@ -10,8 +10,10 @@
   }
 }
 
+// open menu
 .page-header--open {
   @include tablet {
+    visibility: visible;
     padding-bottom: 80px;
     background-color: $color-background-grey;
     position: fixed;
@@ -20,69 +22,76 @@
     left: 0;
     bottom: 0;
     right: 0;
-
-    .page-header__about-us {
-      display: flex;
-    }
-
-    .page-header__site-nav {
-      display: flex;
-    }
-
-    .page-header__user-auth {
-      display: block;
-    }
-
-    .page-header__search {
-      display: block;
-    }
-
-    .page-header__menu-button-icon {
-      color: $color-text-light;
-    }
-
-    .page-header__logo-img {
-      color: $color-text-light;
-    }
-
-    .page-header__basket-icon {
-      color: $color-text-light;
-    }
+    z-index: 99;
   }
 }
 
+@include tablet {
+  .page-header--open .page-header__about-us {
+    display: flex;
+  }
+
+  .page-header--open .page-header__site-nav {
+    display: flex;
+  }
+
+  .page-header--open .page-header__user-auth {
+    display: block;
+  }
+
+  .page-header--open .page-header__search {
+    display: block;
+  }
+
+  .page-header--open .page-header__menu-button-icon {
+    color: $color-text-light;
+  }
+
+  .page-header--open .page-header__logo-img {
+    color: $color-text-light;
+  }
+
+  .page-header--open .page-header__basket-icon {
+    color: $color-text-light;
+  }
+}
+
+
+// nojs
 .page-header--nojs {
   @include tablet {
     padding-bottom: 80px;
     background-color: $color-background-grey;
+  }
+}
 
-    .page-header__about-us {
-      display: flex;
-    }
+@include tablet {
+  .page-header--nojs .page-header__about-us {
+    display: flex;
+  }
 
-    .page-header__site-nav {
-      display: flex;
-    }
+  .page-header--nojs .page-header__site-nav {
+    display: flex;
+  }
 
-    .page-header__user-auth {
-      display: block;
-    }
+  .page-header--nojs .page-header__user-auth {
+    display: block;
+  }
 
-    .page-header__search {
-      display: block;
-    }
+  .page-header--nojs .page-header__search {
+    display: block;
+  }
 
-    .page-header__menu-button {
-      display: none;
-    }
+  .page-header--nojs .page-header__menu-button {
+    display: none;
+  }
 
-    .page-header__logo-img {
-      color: $color-text-light;
-    }
+  .page-header--nojs .page-header__logo-img {
+    color: $color-text-light;
+  }
 
-    .page-header__basket-icon {
-      color: $color-text-light;
-    }
+  .page-header--nojs .page-header__basket-icon {
+    color: $color-text-light;
   }
 }
 
@@ -148,8 +157,6 @@
   transform: scale(0.8);
 }
 
-
-
 .page-header__menu-button-icon {
   @include mobile {
     margin-top: -2px;
@@ -178,6 +185,14 @@
     margin-top: 0;
     align-self: start;
   }
+}
+
+.page-header__logo--active:hover {
+  opacity: 0.7;
+}
+
+.page-header__logo--active:focus {
+  @include setFocusByLightBackground();
 }
 
 .page-header__logo-img {

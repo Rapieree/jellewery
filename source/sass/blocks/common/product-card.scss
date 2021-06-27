@@ -22,16 +22,26 @@
   object-fit: cover;
 }
 
+.product-card a:focus {
+  outline: none;
+}
+
 .product-card a {
   text-decoration: none;
 }
 
-.product-card:hover h3 {
+.product-card:hover h3,
+.product-card:focus-within h3 {
   @include setHoverByDarkText();
 }
 
-.product-card:hover {
+.product-card:hover,
+.product-card:focus-within {
   transform: scale(0.95);
+}
+
+.product-card:focus-within {
+  @include setFocusByLightBackground();
 }
 
 .product-card h3 {

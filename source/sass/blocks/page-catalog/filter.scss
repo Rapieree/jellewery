@@ -1,0 +1,272 @@
+.filter {
+  @include tablet {
+    margin-bottom: 50px;
+  }
+
+  @include mobile {
+    margin-bottom: 40px;
+  }
+}
+
+.filter--open .filter__wrapper {
+  @include tablet {
+    display: block;
+  }
+}
+
+.filter--open .filter__menu-button {
+  margin-bottom: 35px;
+}
+
+.filter--nojs .filter__wrapper {
+  @include tablet {
+    display: block;
+  }
+}
+
+.filter--nojs .filter__menu-button {
+  @include tablet {
+    display: none;
+  }
+}
+
+.filter--nojs .filter__close-button {
+  @include tablet {
+    display: none;
+  }
+}
+
+.filter__menu-button {
+  display: none;
+
+  @include tablet {
+    color: $color-text-light;
+    background-color: $color-background-grey;
+    display: block;
+  }
+}
+
+.filter__menu-button:hover,
+.filter__menu-button:focus {
+  background-color: lighten($color-background-grey, 10);
+}
+
+.filter__menu-button:focus {
+  @include setFocusByLightBackground();
+}
+
+.filter__wrapper {
+  @include tablet {
+    max-width: 423px;
+    width: 100%;
+    margin: 0 auto;
+    display: none;
+    position: relative;
+  }
+}
+
+
+.filter__wrapper--open {
+  @include tablet {
+    display: block;
+  }
+}
+
+.filter__close-button {
+  display: none;
+
+  @include tablet {
+    cursor: pointer;
+    margin: 0;
+    padding: 0;
+    display: block;
+    width: 32px;
+    height: 32px;
+    border: none;
+    background-color: $color-darker-text;
+    border-radius: 50%;
+    position: absolute;
+    top: -10px;
+    right: -10px;
+    z-index: 1;
+
+    &::before,
+    &::after {
+      content: "";
+      width: 60%;
+      height: 3px;
+      background-color: $color-background-white;
+      position: absolute;
+      top: 45%;
+      left: 20%;
+    }
+
+    &::before {
+      transform: rotate(45deg);
+    }
+
+    &::after {
+      top: 45%;
+      right: 20%;
+      transform: rotate(-45deg);
+    }
+  }
+}
+
+.filter__close-button:hover {
+  background-color: lighten($color-darker-text, 15);
+}
+
+.filter__close-button:focus {
+  outline: 1px solid $color-darkest-text;
+}
+
+.filter__accordeon {
+  margin-bottom: 35px;
+}
+
+.filter__accordeon-header {
+  padding: 23px 50px 22px 22px;
+
+  &::before {
+    top: 27px;
+    right: 26px;
+  }
+}
+
+.filter__accordeon-header:hover span {
+  @include setHoverByDarkText();
+}
+
+.filter__accordeon-content {
+  padding: 1px 25px 25px 35px;
+}
+
+.filter__accordeon-content--price {
+  padding-left: 25px;
+  padding-bottom: 18px;
+}
+
+.filter__accordeon-header--price {
+  padding-bottom: 18px;
+  margin-bottom: 4px;
+}
+
+.filter__form fieldset {
+  margin: 0;
+  padding: 0;
+  border: none;
+}
+
+.filter__form span {
+  @include font($font-poppins, 500);
+
+  font-size: 16px;
+  line-height: 130%;
+  color: $color-darker-text;
+}
+
+.filter__form label {
+  @include font($font-poppins, 500);
+
+  font-size: 14px;
+  line-height: 130%;
+  color: $color-darker-text;
+}
+
+.filter__form input[type="checkbox"] {
+  position: absolute;
+  z-index: -1;
+  opacity: 0;
+}
+
+.filter__form input[type="checkbox"] + label {
+  display: inline-flex;
+  align-items: center;
+  cursor: pointer;
+  position: relative;
+
+  &::before {
+    content: "";
+    display: inline-block;
+    width: 15px;
+    height: 15px;
+    margin-right: 10px;
+    border: 1px solid $color-background-grey;
+    background-color: transparent;
+  }
+}
+
+.filter__form input[type="checkbox"]:checked + label {
+  &::before {
+    background-color: $color-background-grey;
+  }
+}
+
+.filter__form input[type="checkbox"] + label:hover {
+  @include setHoverByDarkText();
+
+  &::before {
+    opacity: 0.8;
+  }
+}
+
+.filter__form input[type="checkbox"]:focus + label {
+  @include setFocusByLightBackground();
+}
+
+.filter__checkbox-list {
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+}
+
+.filter__checkbox-list li:not(:last-child) {
+  margin-bottom: 10px;
+}
+
+.filter__form button[type="submit"],
+.filter__form button[type="reset"] {
+  @include font($font-poppins, 500);
+
+  margin: 0;
+  padding: 15px;
+  display: block;
+  width: 100%;
+  min-height: 68px;
+  border: 1px solid $color-background-grey;
+  background-color: transparent;
+  cursor: pointer;
+  font-size: 16px;
+  line-height: 130%;
+}
+
+.filter__form button[type="submit"] {
+  margin-bottom: 25px;
+  background-color: $color-background-grey;
+  color: $color-text-light;
+}
+
+.filter__form button[type="submit"]:hover,
+.filter__form button[type="submit"]:focus {
+  background-color: lighten($color-background-grey, 10);
+}
+
+.filter__form button[type="submit"]:focus {
+  @include setFocusByLightBackground();
+}
+
+.filter__form button[type="reset"] {
+  background-color: $color-background-white;
+  color: $color-darker-text;
+}
+
+.filter__form button[type="reset"]:hover,
+.filter__form button[type="reset"]:focus {
+  border-width: 3px;
+  color: rgba($color-darker-text, 0.7);
+}
+
+.filter__form button[type="reset"]:focus {
+  @include setFocusByLightBackground();
+}

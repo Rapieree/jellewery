@@ -16,7 +16,7 @@
 
 .user-nav__basket--open svg {
   @include tablet {
-    color: white;
+    color: $color-background-white;
   }
 }
 

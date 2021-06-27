@@ -91,9 +91,9 @@
 }
 
 .search svg {
-  color: black;
+  color: #000000;
 
   @include tablet {
-    color: white;
+    color: $color-background-white;
   }
 }

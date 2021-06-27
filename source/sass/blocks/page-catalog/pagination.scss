@@ -1,0 +1,88 @@
+.pagination {
+  display: grid;
+  grid-template-columns: 1fr 3fr 1fr;
+
+  @include mobile {
+    grid-template-columns: 1fr;
+  }
+}
+
+.pagination__list {
+  margin: -5px -4px;
+  padding: 0;
+  list-style-type: none;
+  display: flex;
+  flex-wrap: wrap;
+  justify-self: center;
+
+  @include mobile {
+    margin: -5px -10px;
+  }
+}
+
+.pagination li {
+  margin: 5px 4px;
+
+  @include mobile {
+    margin: 5px 9px;
+  }
+}
+
+.pagination__link {
+  @include font($font-poppins, 500);
+
+  padding: 3px;
+  font-size: 16px;
+  line-height: 130%;
+  text-decoration: none;
+  color: $color-grey-text;
+  border-radius: 3px;
+}
+
+.pagination__link:hover:not(.pagination__link--current),
+.pagination__link:focus {
+  color: $color-darker-text;
+  background-color: $color-background-light-grey;
+}
+
+.pagination__link:focus {
+  @include setFocusByLightBackground();
+}
+
+.pagination__link--current {
+  color: $color-darker-text;
+}
+
+.pagination__prev-link,
+.pagination__next-link {
+  @include font($font-poppins, 500);
+
+  font-size: 16px;
+  line-height: 130%;
+  text-decoration: none;
+  color: $color-darker-text;
+
+  @include mobile {
+    display: none;
+  }
+}
+
+.pagination__next-link {
+  justify-self: right;
+}
+
+.pagination__prev-link {
+  justify-self: left;
+}
+
+.pagination__prev-link:hover,
+.pagination__next-link:hover,
+.pagination__prev-link:focus,
+.pagination__next-link:focus {
+  @include setHoverByDarkText();
+}
+
+.pagination__prev-link:focus,
+.pagination__next-link:focus {
+  @include setFocusByLightBackground();
+}

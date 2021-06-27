@@ -1,3 +1,15 @@
+.faq {
+  margin-bottom: 102px;
+
+  @include tablet {
+    margin-bottom: 65px;
+  }
+
+  @include mobile {
+    margin-bottom: 50px;
+  }
+}
+
 .faq h2 {
   @include font($font-cormorant, 700);
 
@@ -69,7 +81,7 @@
   }
 }
 
-.faq__accordeon-header--open {
+.faq__accordeon-header.accordeon__header--open {
   padding-bottom: 0;
 }
 

@@ -1,6 +1,6 @@
 .promo {
   margin-bottom: 120px;
-  min-height: 463px;
+  height: 463px;
   display: flex;
   flex-direction: column;
   flex-wrap: wrap;
@@ -66,5 +66,46 @@
     margin-left: 0;
     font-size: 34px;
     line-height: 130%;
+  }
+}
+
+.promo--catalog {
+  margin-bottom: 80px;
+  height: 261px;
+  background-image: url("../img/catalog-page/promo/promo-catalog-desktop.jpg");
+
+  @media (min-resolution: 2dppx) {
+    background-image: url("../img/catalog-page/promo/promo-catalog-desktop@2x.jpg");
+  }
+
+  @include tablet {
+    margin-bottom: 50px;
+  }
+
+  @include mobile {
+    margin-bottom: 40px;
+  }
+}
+
+.promo--catalog h2 {
+  margin-bottom: 10px;
+  font-size: 34px;
+  line-height: 130%;
+  letter-spacing: normal;
+
+  @include tablet {
+    margin-left: 0;
+  }
+}
+
+.promo--catalog p {
+  @include font($font-cormorant, 500, italic);
+
+  margin-top: -7px;
+  font-size: 22px;
+  line-height: 130%;
+
+  @include tablet {
+    margin-left: 0;
   }
 }

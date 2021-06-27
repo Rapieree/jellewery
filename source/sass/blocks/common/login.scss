@@ -1,0 +1,190 @@
+.login {
+  margin: 0 auto;
+  padding: 188px 45px 30px 45px;
+  max-width: 430px;
+  min-height: 586px;
+  background-color: $color-background-light-grey;
+  box-shadow: 0 5px 32px rgba(226, 221, 215, 0.24);
+  position: relative;
+
+  @include tablet {
+    padding: 188px 51px 30px 51px;
+    max-width: 442px;
+  }
+
+  @include mobile {
+    padding: 120px 15px 30px 15px;
+    min-height: 470px;
+  }
+
+  &::before {
+    content: "";
+    width: 100%;
+    height: 138px;
+    background-image: url("../img/login/login-background-desktop.jpg");
+    position: absolute;
+    left: 0;
+    top: 0;
+
+    @media (min-resolution: 2dppx) {
+      background-image: url("../img/login/login-background-desktop@2x.jpg");
+    }
+
+    @include mobile {
+      height: 84px;
+    }
+  }
+}
+
+.login__title {
+  @include font($font-cormorant, 700);
+
+  margin: 0 0 25px 0;
+  padding: 0;
+  font-size: 34px;
+  line-height: 130%;
+  color: $color-darker-text;
+  text-align: center;
+
+  @include mobile {
+    margin-bottom: 19px;
+    font-size: 24px;
+    line-height: 130%;
+  }
+}
+
+.login__form {
+  display: inline-block;
+}
+
+.login__form input {
+  @include font($font-poppins, 500);
+
+  padding: 9px 30px 9px 0;
+  width: 100%;
+  height: 38px;
+  border: none;
+  background-color: transparent;
+  border-bottom: 1px solid $color-darker-text;
+  font-size: 14px;
+  line-height: 21px;
+  color: $color-darker-text;
+
+  &::placeholder {
+    color: $color-grey-text;
+  }
+
+  @include mobile {
+    padding: 8px 30px 8px 0;
+  }
+}
+
+.login__form input:hover {
+  &::placeholder {
+    @include setHoverByLightText();
+  }
+}
+
+.login__form input:focus {
+  @include setFocusByLightBackground();
+}
+
+.login__form input:not(:last-of-type) {
+  margin-bottom: 27px;
+
+  @include mobile {
+    margin-bottom: 21px;
+  }
+}
+
+.login-forgot-link {
+  @include font($font-poppins, 500);
+
+  margin: 6px 0 45px auto;
+  display: block;
+  width: fit-content;
+  font-size: 12px;
+  line-height: 18px;
+  color: $color-grey-text;
+  text-decoration: none;
+
+  @include mobile {
+    margin-bottom: 35px;
+  }
+}
+
+.login-forgot-link:hover,
+.login-forgot-link:focus {
+  @include setHoverByLightText();
+}
+
+.login-forgot-link:focus {
+  @include setFocusByLightBackground();
+}
+
+.login__form button[type="submit"] {
+  @include font($font-poppins, 500);
+
+  width: 100%;
+  min-height: 68px;
+  padding: 15px 10px;
+  display: flex;
+  justify-content: center;
+  border: none;
+  align-items: center;
+  font-size: 16px;
+  line-height: 130%;
+  text-align: center;
+  text-decoration: none;
+  color: $color-text-light;
+  cursor: pointer;
+  background-color: $color-background-grey;
+}
+
+.login__form button[type="submit"]:hover,
+.login__form button[type="submit"]:focus {
+  background-color: lighten($color-background-grey, 10);
+}
+
+.login__form button[type="submit"]:focus {
+  @include setFocusByLightBackground();
+}
+
+.login__register {
+  @include font($font-poppins, 500);
+  font-size: 14px;
+  line-height: 21px;
+  color: $color-grey-text;
+  text-align: center;
+}
+
+.login__sign-up-link {
+  @include font($font-poppins, 500);
+
+  margin-left: 6px;
+  font-size: 14px;
+  line-height: 21px;
+  color: $color-darker-text;
+  text-decoration: none;
+}
+
+.login__sign-up-link:hover,
+.login__sign-up-link:focus {
+  @include setHoverByDarkText();
+}
+
+.login__sign-up-link:focus {
+  @include setFocusByLightBackground();
+}
+
+.login__close-button {
+  @include tablet {
+    width: 25px;
+    height: 25px;
+  }
+
+  @include mobile {
+    width: 18px;
+    height: 18px;
+  }
+}

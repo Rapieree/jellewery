@@ -62,6 +62,14 @@
   display: none;
 }
 
+.accordeon__button--open .accordeon__button-text--open {
+  display: none;
+}
+
+.accordeon__button--open .accordeon__button-text--close {
+  display: block;
+}
+
 .accordeon__button-text--current {
   display: block;
 }

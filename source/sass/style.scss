@@ -5,6 +5,15 @@
 // page
 @import "blocks/page-body.scss";
 
+// common blocks
+@import "blocks/common/promo.scss";
+@import "blocks/common/accordeon.scss";
+@import "blocks/common/product-card.scss";
+@import "blocks/common/product-slider.scss";
+@import "blocks/common/modal.scss";
+@import "blocks/common/login.scss";
+@import "blocks/common/add-to-basket.scss";
+
 // header
 @import "blocks/header/page-header.scss";
 @import "blocks/header/search.scss";
@@ -18,12 +27,21 @@
 @import "blocks/footer/follow-us.scss";
 @import "blocks/footer/social.scss";
 
-// common blocks
-@import "blocks/common/promo.scss";
-@import "blocks/common/accordeon.scss";
-@import "blocks/common/product-card.scss";
 
-// main blocks
+// page-main blocks
 @import "blocks/page-main/blog.scss";
 @import "blocks/page-main/faq.scss";
-@import "blocks/page-main/new-products.scss";
+@import "blocks/page-main/gallery.scss";
+
+
+// page-catalog blocks
+@import "blocks/page-catalog/filter.scss";
+@import "blocks/page-catalog/filter-range.scss";
+@import "blocks/page-catalog/catalog.scss";
+@import "blocks/page-catalog/pagination.scss";
+
+
+// page-product-details
+@import "blocks/page-product-details/photo-slider.scss";
+@import "blocks/page-product-details/product-details.scss";
+@import "blocks/page-product-details/tabs.scss";

@@ -1,0 +1,142 @@
+.photo-slider {
+  margin-top: 10px;
+  margin-left: auto;
+  padding-bottom: 72.5%;
+  width: 100%;
+  height: min-content;
+  position: relative;
+
+  @include tablet {
+    padding-bottom: 134.5%;
+  }
+
+  @include mobile {
+    margin-top: 0;
+    padding-bottom: 89.65%;
+  }
+}
+
+.photo-slider__wrapper {
+  display: grid;
+  grid-template-columns: 1fr 4.7fr;
+  column-gap: 30px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+
+  @include tablet {
+    grid-template-columns: auto;
+    grid-template-rows: 2.21fr 1fr;
+    row-gap: 14px;
+  }
+
+  @include mobile {
+    grid-template-columns: 1fr;
+    grid-template-rows: auto;
+  }
+}
+
+.photo-slider__full {
+  width: 100%;
+}
+
+.photo-slider__controller {
+  height: 100%;
+  width: auto;
+
+  @include tablet {
+    grid-row: 2;
+    width: 100%;
+    height: 100%;
+  }
+
+  @include mobile {
+    display: none;
+  }
+}
+
+.photo-slider img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.photo-slider__full-list {
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+
+  @include mobile {
+    position: relative;
+  }
+}
+
+.photo-slider__controller-list {
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+  display: grid;
+  grid-template-rows: 1fr 1fr 1fr;
+
+  @include tablet {
+    display: flex;
+  }
+}
+
+.photo-slider__controller-list button,
+.photo-slider__full-list li {
+  width: 100%;
+  overflow: hidden;
+  position: relative;
+}
+
+.photo-slider__controller-list button {
+  display: block;
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  width: 100%;
+  cursor: pointer;
+  background-color: transparent;
+  border: none;
+}
+
+.photo-slider__controller-item:hover {
+  opacity: 0.7;
+}
+
+.photo-slider__controller-item--current {
+  outline: 4px dashed $color-background-grey;
+  outline-offset: -5px;
+}
+
+.photo-slider__controller-item--current:focus-within {
+  &::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    outline: 2px solid $color-dark-focus;
+    outline-offset: -2px;
+    z-index: 1;
+  }
+}
+
+.photo-slider__full-pagination {
+  display: none;
+
+  @include mobile {
+    @include font($font-poppins, 500);
+
+    font-size: 14px;
+    line-height: 130%;
+    display: block;
+    position: absolute;
+    left: 0;
+    bottom: 5px;
+  }
+}

@@ -1,0 +1,89 @@
+.modal {
+  visibility: visible;
+  display: none;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  overflow-y: auto;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 99;
+
+  &::before {
+    content: "";
+    width: 100%;
+    height: 100%;
+    background-color: rgba(29, 22, 19, 0.25);
+    position: fixed;
+    top: 0;
+    left: 0;
+  }
+
+  @include mobile {
+    padding: 15px;
+  }
+}
+
+.modal--open {
+  display: flex;
+}
+
+.modal__content {
+  position: relative;
+}
+
+.modal__close-button {
+  margin: 0;
+  padding: 0;
+  width: 18px;
+  height: 18px;
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
+  position: absolute;
+  top: 17px;
+  right: 18px;
+
+  @include mobile {
+    top: 12px;
+    right: 13px;
+  }
+
+  &::before,
+  &::after {
+    content: "";
+    width: 95%;
+    height: 2px;
+    background-color: $color-darker-text;
+    position: absolute;
+    top: 50%;
+    left: 0;
+  }
+
+  &::before {
+    transform: rotate(45deg) translateY(-50%);
+  }
+
+  &::after {
+    left: auto;
+    right: 0;
+    transform: rotate(-45deg) translateY(-50%);
+  }
+}
+
+.modal__close-button:hover {
+  opacity: 0.6;
+}
+
+.modal__close-button:focus {
+  @include setFocusByLightBackground();
+}
+
+.modal--login {
+  @include mobile {
+    padding: 10px 25px;
+  }
+}

@@ -1,5 +1,14 @@
 .blog {
+  margin-bottom: 120px;
   text-align: center;
+
+  @include tablet {
+    margin-bottom: 72px;
+  }
+
+  @include mobile {
+    margin-bottom: 60px;
+  }
 }
 
 .blog h2 {
@@ -192,4 +201,3 @@
     margin-top: 0;
   }
 }
-

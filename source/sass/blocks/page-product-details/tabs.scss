@@ -1,0 +1,40 @@
+.tabs__controls {
+  margin: -5px -17.5px;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.tabs__control {
+  margin: 5px 17.5px;
+}
+
+.tabs__control:hover,
+.tabs__control:focus {
+  @include setHoverByDarkText();
+}
+
+.tabs__control:focus {
+  @include setFocusByLightBackground();
+}
+
+.tabs__list {
+  margin: 22px 0 0 0;
+  padding: 0;
+  list-style-type: none;
+
+  @include mobile {
+    margin-top: 20px;
+  }
+}
+
+.tabs__content {
+  display: none;
+}
+
+.tabs__content--current {
+  display: block;
+}
+
+.tabs__control--current {
+  color: $color-grey-text;
+}
