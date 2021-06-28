@@ -282,110 +282,111 @@ const modalsInitialize = () => {
   let onModalMouseUp; // через onModalCallbackMouseUp
   // end
 
-  const setModalOpening = (modalElement, flag) => {
-    if (flag) {
-      modalElement.classList.add(modalOpenClass);
-      document.body.classList.add(bodyScrollHiddenClass);
-      window.addEventListener('keydown', onModalEscapeKeyDown);
-      window.addEventListener('keydown', setFocusControl);
-      window.addEventListener('keyup', onModalShiftUp);
-      modalElement.addEventListener('mousedown', onModalMouseDown);
-      modalElement.addEventListener('click', onModalMouseUp);
-      modalFocusElementsList[0].focus();
-    } else {
-      modalElement.classList.remove(modalOpenClass);
-      document.body.classList.remove(bodyScrollHiddenClass);
-      window.removeEventListener('keydown', onModalEscapeKeyDown);
-      window.removeEventListener('keydown', setFocusControl);
-      window.removeEventListener('keyup', onModalShiftUp);
-      modalElement.removeEventListener('mousedown', onModalMouseDown);
-      modalElement.removeEventListener('click', onModalMouseUp);
+  class Modal {
+    constructor(modalElement, openButton, closeButton) {
+      this._modalElement = modalElement;
+      this._openButton = openButton;
+      this._closeButton = closeButton;
+
+      this._focusElementsList = this._modalElement.querySelectorAll(focusSelectors);
+      this._focusStartElem = this._focusElementsList[0];
+      this._focusEndElem = this._focusElementsList[this._focusElementsList.length - 1];
+
+      this._shiftPressed = false;
+
+      this._onModalEscapeKeyDown = this._onModalEscapeKeyDown.bind(this);
+      this._onModalMouseUp = this._onModalMouseUp.bind(this);
     }
 
-  }
+    _onModalShiftUp(evt) { // отслеживание отпускания shift
+      if (evt.key === 'Shift') {
+        this._shiftPressed = false;
+      }
+    }
 
-  const setFocusControl = (evt) => { // Установить фокус с клавиатуры только на элементах формы
-    if (evt.key === 'Shift') {
-      shiftPressed = true;
+    _setFocusControl(evt) { // Установить фокус с клавиатуры только на элементах формы
+      if (evt.key === 'Shift') {
+        shiftPressed = true;
+      }
+      if ((!shiftPressed && evt.key === 'Tab') && (document.querySelector(':focus') === this._focusEndElem)) {
+        evt.preventDefault();
+        this._focusStartElem.focus();
+      }
+      else if ((shiftPressed && evt.key === 'Tab') && (document.querySelector(':focus') === this._focusStartElem)) {
+        evt.preventDefault();
+        this._focusEndElem.focus();
+      }
     }
-    if ((!shiftPressed && evt.key === 'Tab') && (document.querySelector(':focus') === modalFocusEndElem)) {
-      evt.preventDefault();
-      modalFocusStartElem.focus();
-    }
-    else if ((shiftPressed && evt.key === 'Tab') && (document.querySelector(':focus') === modalFocusStartElem)) {
-      evt.preventDefault();
-      modalFocusEndElem.focus();
-    }
-  }
 
-  const onModalShiftUp = (evt) => { // отслеживание отпускания shift
-    if (evt.key === 'Shift') {
-      shiftPressed = false;
-    }
-  }
-
-  const onModalCallbackEscapeKeyDown = (modalElement) => {
-    return (evt) => {
+    _onModalEscapeKeyDown(evt) {
       if (evt.key === ('Escape' || 'Esc')) {
         evt.preventDefault();
-        setModalOpening(modalElement, false);
+        this._setModalOpening(false);
       }
-    };
-  }
-
-  function onModalMouseDown(evt) {
-    if (evt.target === evt.currentTarget) {
-      mousePressed = true;
     }
-  }
 
-  function onModalCallbackMouseUp(modalElement) {
-    return (evt) => {
-      if (evt.target === modalElement && mousePressed === true) {
-        mousePressed = false;
-        setModalOpening(modalElement, false);
+    _onModalMouseDown(evt) {
+      if (evt.target === evt.currentTarget) {
+        mousePressed = true;
       }
+    }
+
+    _onModalMouseUp(evt) {
+      if (evt.target === this._modalElement && mousePressed === true) {
+        mousePressed = false;
+        this._setModalOpening(false);
+      }
+    }
+
+    _setModalOpening(flag) {
+      if (flag) {
+        this._modalElement.classList.add(modalOpenClass);
+        document.body.classList.add(bodyScrollHiddenClass);
+        window.addEventListener('keydown', this._onModalEscapeKeyDown);
+        window.addEventListener('keydown', this._setFocusControl);
+        window.addEventListener('keyup', this._onModalShiftUp);
+        this._modalElement.addEventListener('mousedown', this._onModalMouseDown);
+        this._modalElement.addEventListener('click', this._onModalMouseUp);
+        this._focusElementsList[0].focus();
+      } else {
+        this._modalElement.classList.remove(modalOpenClass);
+        document.body.classList.remove(bodyScrollHiddenClass);
+        window.removeEventListener('keydown', this._onModalEscapeKeyDown);
+        window.removeEventListener('keydown', this._setFocusControl);
+        window.removeEventListener('keyup', this._onModalShiftUp);
+        this._modalElement.removeEventListener('mousedown', this._onModalMouseDown);
+        this._modalElement.removeEventListener('click', this._onModalMouseUp);
+      }
+    }
+
+    modalInitialize() {
+      this._openButton.addEventListener('click', (evt) => {
+        evt.preventDefault();
+        this._setModalOpening(this._modalElement, true);
+      });
+
+      this._closeButton.addEventListener('click', () => this._setModalOpening(false));
     }
   }
 
   // Окно добавления в корзину
   if (document.querySelector('.modal--add-to-basket') !== null && document.querySelector('.product-details__add-basket-link') !== null) {
-    const modalAddToBasket = document.querySelector('.modal--add-to-basket');
-    const modalAddToBasketCloseButton = modalAddToBasket.querySelector('.modal__close-button');
+    const addToBasket = document.querySelector('.modal--add-to-basket');
+    const addToBasketCloseButton = addToBasket.querySelector('.modal__close-button');
     const addToBasketOpenButton = document.querySelector('.product-details__add-basket-link');
 
-    modalFocusElementsList = modalAddToBasket.querySelectorAll(focusSelectors);
-    modalFocusStartElem = modalFocusElementsList[0];
-    modalFocusEndElem = modalFocusElementsList[modalFocusElementsList.length - 1];
-
-    onModalEscapeKeyDown = onModalCallbackEscapeKeyDown(modalAddToBasket);
-    onModalMouseUp = onModalCallbackMouseUp(modalAddToBasket);
-
-    addToBasketOpenButton.addEventListener('click', (evt) => {
-      evt.preventDefault();
-      setModalOpening(modalAddToBasket, true);
-    });
-    modalAddToBasketCloseButton.addEventListener('click', () => setModalOpening(modalAddToBasket, false));
+    const modalAddToBasket = new Modal(addToBasket, addToBasketOpenButton, addToBasketCloseButton);
+    modalAddToBasket.modalInitialize();
   }
 
   // Окно логина
   if (document.querySelector('.modal--login') !== null) {
-    const modalLogin = document.querySelector('.modal--login');
-    const modalLoginCloseButton = modalLogin.querySelector('.modal__close-button');
+    const login = document.querySelector('.modal--login');
+    const loginCloseButton = login.querySelector('.modal__close-button');
     const loginOpenButton = document.querySelector('.user-auth__login a');
 
-    modalFocusElementsList = modalLogin.querySelectorAll(focusSelectors);
-    modalFocusStartElem = modalFocusElementsList[0];
-    modalFocusEndElem = modalFocusElementsList[modalFocusElementsList.length - 1];
-
-    onModalEscapeKeyDown = onModalCallbackEscapeKeyDown(modalLogin);
-    onModalMouseUp = onModalCallbackMouseUp(modalLogin);
-
-    loginOpenButton.addEventListener('click', (evt) => {
-      evt.preventDefault();
-      setModalOpening(modalLogin, true);
-    });
-    modalLoginCloseButton.addEventListener('click', () => setModalOpening(modalLogin, false));
+    const modalLogin = new Modal(login, loginOpenButton, loginCloseButton);
+    modalLogin.modalInitialize();
   }
 }
 
