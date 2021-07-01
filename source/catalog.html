@@ -15,7 +15,7 @@
 </head>
 
 <body class="page-body">
-  <header class="page-header">
+  <header class="page-header page-header--nojs">
     <div class="page-header__wrapper container">
       <button class="page-header__menu-button" type="button" aria-label="Open Menu">
         <svg class="page-header__menu-button-icon" width="25" height="16">
@@ -87,14 +87,11 @@
             <div class="accordeon filter__accordeon">
               <div class="accordeon__item">
                 <fieldset>
-                  <header class="filter__accordeon-header accordeon__header accordeon__header--open">
-                    <button class="accordeon__button" type="button">
-                      <span class="visually-hidden accordeon__button-text accordeon__button-text--open">Open</span>
-                      <span class="visually-hidden accordeon__button-text accordeon__button-text--close">Close</span>
-                    </button>
+                  <header class="filter__accordeon-header accordeon__header accordeon__header--open accordeon__header--nojs">
+                    <button class="accordeon__button accordeon__button--open accordeon__button--nojs" type="button" aria-label="Open tab"></button>
                     <span>Product</span>
                   </header>
-                  <div class="filter__accordeon-content accordeon__content accordeon__content--open">
+                  <div class="filter__accordeon-content accordeon__content accordeon__content--open accordeon__content--nojs">
                     <ul class="filter__checkbox-list">
                       <li>
                         <input id="filter-product-necklaces" name="filter-product-necklaces" type="checkbox" checked>
@@ -118,14 +115,11 @@
               </div>
               <div class="accordeon__item">
                 <fieldset>
-                  <header class="filter__accordeon-header accordeon__header">
-                    <button class="accordeon__button" type="button">
-                      <span class="visually-hidden accordeon__button-text accordeon__button-text--open">Open</span>
-                      <span class="visually-hidden accordeon__button-text accordeon__button-text--close">Close</span>
-                    </button>
+                  <header class="filter__accordeon-header accordeon__header accordeon__header--nojs">
+                    <button class="accordeon__button accordeon__button--nojs" type="button" aria-label="Open tab"></button>
                     <span>Material</span>
                   </header>
-                  <div class="filter__accordeon-content accordeon__content">
+                  <div class="filter__accordeon-content accordeon__content accordeon__content--nojs">
                     <ul class="filter__checkbox-list">
                       <li>
                         <input id="filter-material-gold" name="filter-material-gold" type="checkbox">
@@ -141,14 +135,11 @@
               </div>
               <div class="accordeon__item">
                 <fieldset>
-                  <header class="filter__accordeon-header accordeon__header">
-                    <button class="accordeon__button" type="button">
-                      <span class="visually-hidden accordeon__button-text accordeon__button-text--open">Open</span>
-                      <span class="visually-hidden accordeon__button-text accordeon__button-text--close">Close</span>
-                    </button>
+                  <header class="filter__accordeon-header accordeon__header accordeon__header--nojs">
+                    <button class="accordeon__button accordeon__button--nojs" type="button" aria-label="Open tab"></button>
                     <span>Collection</span>
                   </header>
-                  <div class="filter__accordeon-content accordeon__content">
+                  <div class="filter__accordeon-content accordeon__content accordeon__content--nojs">
                     <ul class="filter__checkbox-list">
                       <li>
                         <input id="filter-collection-pink-flamingo" name="filter-collection-pink-flamingo"
@@ -166,15 +157,12 @@
               <div class="accordeon__item">
                 <fieldset>
                   <header
-                    class="filter__accordeon-header filter__accordeon-header--price accordeon__header accordeon__header--open">
-                    <button class="accordeon__button" type="button">
-                      <span class="visually-hidden accordeon__button-text accordeon__button-text--open">Open</span>
-                      <span class="visually-hidden accordeon__button-text accordeon__button-text--close">Close</span>
-                    </button>
+                    class="filter__accordeon-header filter__accordeon-header--price accordeon__header accordeon__header--open accordeon__header--nojs">
+                    <button class="accordeon__button accordeon__button--nojs" type="button" aria-label="Open tab"></button>
                     <span>Price</span>
                   </header>
                   <div
-                    class="filter__accordeon-content accordeon__content filter__accordeon-content--price accordeon__content--open">
+                    class="filter__accordeon-content accordeon__content filter__accordeon-content--price accordeon__content--open accordeon__content--nojs">
                     <div class="filter-range">
                       <div class="filter-range__controls">
                         <div class="filter-range__scale">

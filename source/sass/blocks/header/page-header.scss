@@ -60,6 +60,7 @@
 // nojs
 .page-header--nojs {
   @include tablet {
+    margin-bottom: 30px;
     padding-bottom: 80px;
     background-color: $color-background-grey;
   }

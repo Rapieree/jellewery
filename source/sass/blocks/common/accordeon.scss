@@ -37,10 +37,6 @@
   display: none;
 }
 
-.accordeon__header--nojs .accordeon__button {
-  display: none;
-}
-
 .accordeon__header--open::before {
   transform: rotate(135deg);
 }
@@ -58,20 +54,12 @@
   left: 0;
 }
 
-.accordeon__button-text {
-  display: none;
-}
-
-.accordeon__button--open .accordeon__button-text--open {
-  display: none;
-}
-
-.accordeon__button--open .accordeon__button-text--close {
+.accordeon__button--open {
   display: block;
 }
 
-.accordeon__button-text--current {
-  display: block;
+.accordeon__button--nojs {
+  display: none;
 }
 
 .accordeon__content {
@@ -94,6 +82,3 @@
   }
 }
 
-.accordeon__button:focus {
-  @include setFocusByLightBackground();
-}

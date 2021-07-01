@@ -1,7 +1,57 @@
+const menuInitialize = () => {
+  if (document.querySelector('.page-header') !== null) {
+    const menuHeader = document.querySelector('.page-header');
+    const menuButton = menuHeader.querySelector('.page-header__menu-button');
+
+    const bodyScrollHiddenClass = 'page-body--scroll-hidden';
+    const bodyVisibilityHiddenClass = 'page-body--visibility-hidden';
+
+    const menuHeaderOpenClass = 'page-header--open';
+    const menuHeaderNojsClass = 'page-header--nojs';
+
+    if (menuHeader.classList.contains(menuHeaderNojsClass)) {
+      menuHeader.classList.remove(menuHeaderNojsClass);
+    }
+
+    const setMenuOpening = (flag) => {
+      if (flag) {
+        menuHeader.classList.add(menuHeaderOpenClass);
+        document.body.classList.add(bodyScrollHiddenClass);
+        document.body.classList.add(bodyVisibilityHiddenClass);
+        document.addEventListener('keydown', onMenuEscapeKeyDown);
+      } else if (!flag) {
+        menuHeader.classList.remove(menuHeaderOpenClass);
+        document.body.classList.remove(bodyScrollHiddenClass);
+        document.body.classList.remove(bodyVisibilityHiddenClass);
+        document.removeEventListener('keydown', onMenuEscapeKeyDown);
+      }
+    }
+
+    const onMenuEscapeKeyDown = (evt) => {
+      if (evt.key === ('Escape' || 'Esc')) {
+        evt.preventDefault();
+        setMenuOpening(false);
+      }
+    }
+
+    menuButton.addEventListener('click', () => {
+      if (!menuHeader.classList.contains(menuHeaderOpenClass)) {
+        setMenuOpening(true);
+      } else {
+        setMenuOpening(false);
+      }
+    });
+  }
+}
+
 const slidersInitialize = () => {
   if (document.querySelector('.product-slider__slider') !== null) {
+    const productSliderElement = document.querySelector('.product-slider');
+    const productSliderContainer = productSliderElement.querySelector('.product-slider__slider');
+    productSliderElement.classList.add('product-slider--initialization');
+
     /* eslint-disable-next-line */
-    const productSlider = new Swiper('.product-slider__slider', {
+    const productSlider = new Swiper(productSliderContainer, {
       slidesPerView: 2,
       spaceBetween: 30,
       slidesPerGroup: 2,
@@ -52,8 +102,12 @@ const slidersInitialize = () => {
   }
 
   if (document.querySelector('.photo-slider__controller') !== null && document.querySelector('.photo-slider__full') !== null) {
+    const photoSliderElement = document.querySelector('.photo-slider');
+    const photoSliderControllerElement = photoSliderElement.querySelector('.photo-slider__controller');
+    photoSliderElement.classList.add('photo-slider--initialization');
+
     /* eslint-disable-next-line */
-    const photoSliderController = new Swiper('.photo-slider__controller', {
+    const photoSliderController = new Swiper(photoSliderControllerElement, {
       slideToClickedSlide: true,
       allowTouchMove: true,
       mousewheel: {
@@ -153,10 +207,23 @@ const accordeonInitialize = () => {
     const accordeonContentList = accordeon.querySelectorAll('.accordeon__content');
 
     const accordeonClassOpenHeader = 'accordeon__header--open';
-    const accordeonClassOpenButton = 'accordeon__button--open';
+    const accordeonClassNojsHeader = 'accordeon__header--nojs';
     const accordeonClassOpenContent = 'accordeon__content--open';
+    const accordeonClassNojsContent = 'accordeon__content--nojs';
+    const accordeonClassNojsButton = 'accordeon__button--nojs';
+    const accordeonClassOpenButton = 'accordeon__button--open';
 
     accordeonButtonList.forEach((item, index) => {
+      if(
+        accordeonHeaderList[index].classList.contains(accordeonClassNojsHeader) &&
+        accordeonButtonList[index].classList.contains(accordeonClassNojsButton) &&
+        accordeonContentList[index].classList.contains(accordeonClassNojsContent)
+      ) {
+        accordeonHeaderList[index].classList.remove(accordeonClassNojsHeader);
+        accordeonButtonList[index].classList.remove(accordeonClassNojsButton);
+        accordeonContentList[index].classList.remove(accordeonClassNojsContent);
+      }
+
       item.addEventListener('click', () => {
         accordeonHeaderList[index].classList.toggle(accordeonClassOpenHeader);
         accordeonButtonList[index].classList.toggle(accordeonClassOpenButton);
@@ -205,52 +272,6 @@ const tabsInitialize = () => {
   }
 };
 
-const menuInitialize = () => {
-  if (document.querySelector('.page-header') !== null) {
-    const menuHeader = document.querySelector('.page-header');
-    const menuButton = menuHeader.querySelector('.page-header__menu-button');
-
-    const bodyScrollHiddenClass = 'page-body--scroll-hidden';
-    const bodyVisibilityHiddenClass = 'page-body--visibility-hidden';
-
-    const menuHeaderOpenClass = 'page-header--open';
-    const menuHeaderNojsClass = 'page-header--nojs';
-
-    if (menuHeader.classList.contains(menuHeaderNojsClass)) {
-      menuHeader.classList.remove(menuHeaderNojsClass);
-    }
-
-    const setMenuOpening = (flag) => {
-      if (flag) {
-        menuHeader.classList.add(menuHeaderOpenClass);
-        document.body.classList.add(bodyScrollHiddenClass);
-        document.body.classList.add(bodyVisibilityHiddenClass);
-        document.addEventListener('keydown', onMenuEscapeKeyDown);
-      } else if (!flag) {
-        menuHeader.classList.remove(menuHeaderOpenClass);
-        document.body.classList.remove(bodyScrollHiddenClass);
-        document.body.classList.remove(bodyVisibilityHiddenClass);
-        document.removeEventListener('keydown', onMenuEscapeKeyDown);
-      }
-    }
-
-    const onMenuEscapeKeyDown = (evt) => {
-      if (evt.key === ('Escape' || 'Esc')) {
-        evt.preventDefault();
-        setMenuOpening(false);
-      }
-    }
-
-    menuButton.addEventListener('click', () => {
-      if (!menuHeader.classList.contains(menuHeaderOpenClass)) {
-        setMenuOpening(true);
-      } else {
-        setMenuOpening(false);
-      }
-    });
-  }
-}
-
 const modalsInitialize = () => {
   const bodyScrollHiddenClass = 'page-body--desktop-scroll-hidden';
   const modalOpenClass = 'modal--open';
@@ -271,16 +292,6 @@ const modalsInitialize = () => {
 
   let mousePressed = false;
   let shiftPressed = false;
-
-  // Обязательно инициализировать перед использованием
-  // start
-  let modalFocusElementsList; // modal.querySelectorAll(focusSelectors)
-  let modalFocusStartElem; // modalFocusElementsList[0]
-  let modalFocusEndElem; //  modalFocusElementsList[modalFocusElementsList.length - 1]
-
-  let onModalEscapeKeyDown; // через onModalCallbackEscapeKeyDown
-  let onModalMouseUp; // через onModalCallbackMouseUp
-  // end
 
   class Modal {
     constructor(modalElement, openButton, closeButton) {

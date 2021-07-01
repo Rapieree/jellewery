@@ -168,7 +168,7 @@
   }
 }
 
-.product-deatils__special-list li {
+.product-details__special-list li {
   @include font($font-poppins, 500);
 
   font-size: 14px;
@@ -181,7 +181,7 @@
   }
 }
 
-.product-deatils__special-list li:not(:first-child) {
+.product-details__special-list li:not(:first-child) {
   position: relative;
 
   &::before {
